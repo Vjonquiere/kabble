@@ -2,18 +2,20 @@ package model
 
 import kotlin.random.Random
 
-open class Card(nbRounds: Int) {
+abstract class Card(var nbRounds: Int) {
 
-    var arrayInt: Array<Int> = randomArrayInt(nbRounds)
+    abstract var arrayInt: Array<Int>
 
-
-    open fun nextRound(randomArrayInt : Array<Int>){
-        this.arrayInt = randomArrayInt
+    open fun nextRound(player1 : Player, player2 : Player) {
+        this.arrayInt = randomArrayInt(this.nbRounds,player1,player2)
     }
 
-    private fun randomArrayInt(nbRounds : Int): Array<Int>{
+
+    open fun randomArrayInt(nbRounds : Int, player1: Player, player2: Player): Array<Int>{
         val array = Array(8) { Random.nextInt(0,nbRounds)
         }
+        array[0]=player1.arrayInt[Random.nextInt(0,8)]
+        array[1]=player2.arrayInt[Random.nextInt(0,8)]
         return array
     }
 
