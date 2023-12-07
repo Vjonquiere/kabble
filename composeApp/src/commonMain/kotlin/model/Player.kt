@@ -1,9 +1,9 @@
 package model
 
-class Player (val nom: String) : Card() {
+class Player(arrayInt: Int) : Card(arrayInt) {
 
-    override fun nextRound(middleArraySign: Array<Sign>) {
-        this.arraySign = middleArraySign
+    override fun nextRound(middleArrayInt: Array<Int>) {
+        this.arrayInt = middleArrayInt
     }
 
 }

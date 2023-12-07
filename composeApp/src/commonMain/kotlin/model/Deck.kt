@@ -1,5 +1,5 @@
 package model
 
-class Deck: Card() {
+class Deck(arrayInt: Int): Card(arrayInt) {
 
 }

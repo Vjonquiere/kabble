@@ -1,13 +1,25 @@
 package model
 
-open class Card() {
-    lateinit var arraySign : Array<Sign>
+import kotlin.random.Random
 
-    constructor(arraySign: Array<Sign>) : this() {
-        this.arraySign = arraySign
+open class Card(nbRounds: Int) {
+
+    var arrayInt: Array<Int> = randomArrayInt(nbRounds)
+
+
+    open fun nextRound(randomArrayInt : Array<Int>){
+        this.arrayInt = randomArrayInt
     }
 
-    open fun nextRound(randomArraySign : Array<Sign>){
-        this.arraySign = randomArraySign
+    private fun randomArrayInt(nbRounds : Int): Array<Int>{
+        val array = Array(8) { Random.nextInt(0,nbRounds)
+        }
+        return array
     }
+
+    fun printArrayInt() {
+        println("ArrayInt: ${this.arrayInt.joinToString()}")
+    }
+
+
 }
