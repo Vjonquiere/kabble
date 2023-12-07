@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import model.ClassicSpritePosition
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import kotlin.random.Random
@@ -20,9 +21,18 @@ class Card {
                 contentDescription = "Empty card",
                 modifier = Modifier.size(300.dp)
             )
-            for (i in 1..15){
-                Sprite(i).draw(Random.nextInt(50,250), Random.nextInt(50,250), Random.nextInt(50,100))
+            for (position in ClassicSpritePosition().generate_positions()){
+                Sprite(Random.nextInt(1,15)).draw(position.get_x(), position.get_y(), Random.nextInt(60,75))
             }
+
+            //Sprite(2).draw(60, 15, 75)
+            //Sprite(2).draw(150, 20, 75)
+            //Sprite(2).draw(10, 90, 75)
+            //Sprite(2).draw(30, 170, 75)
+            //Sprite(2).draw(100, 210, 75)
+            //Sprite(2).draw(100, 100, 75)
+            //Sprite(2).draw(210, 100, 75)
+            //Sprite(2).draw(180, 180, 75)
 
         }
 
