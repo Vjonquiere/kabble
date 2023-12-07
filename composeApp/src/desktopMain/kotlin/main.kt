@@ -5,12 +5,12 @@ import androidx.compose.ui.window.application
 
 fun main() = application {
     Window(onCloseRequest = ::exitApplication, title = "Kabble") {
-        App()
+        View.App()
     }
 }
 
 @Preview
 @Composable
 fun AppDesktopPreview() {
-    App()
+    View.App()
 }

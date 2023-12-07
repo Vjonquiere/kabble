@@ -29,8 +29,10 @@ kotlin {
     }
     
     jvm("desktop")
+
     
     sourceSets {
+
         val desktopMain by getting
         
         androidMain.dependencies {
@@ -83,6 +85,7 @@ android {
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
     }
+
 }
 
 compose.desktop {
