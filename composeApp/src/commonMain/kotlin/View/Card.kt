@@ -20,8 +20,8 @@ class Card {
                 contentDescription = "Empty card",
                 modifier = Modifier.size(300.dp)
             )
-            for (i in 1..10){
-                Sprite(13).draw(Random.nextInt(50,250), Random.nextInt(50,250), Random.nextInt(50,100))
+            for (i in 1..15){
+                Sprite(i).draw(Random.nextInt(50,250), Random.nextInt(50,250), Random.nextInt(50,100))
             }
 
         }
