@@ -10,3 +10,4 @@ Le jeu comporte 55 cartes rondes, avec 8 dessins sur chacune. Chaque carte a un 
 - [Valentin JONQUIÈRE]
 - [Diego RIOSALIDO]
 - [Téo DEMENDONÇA]
+- [Denis DEMIRCI]
