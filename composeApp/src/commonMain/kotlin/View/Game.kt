@@ -14,7 +14,7 @@ import org.jetbrains.compose.resources.painterResource
 
 class Game {
     var needRefresh: MutableState<Boolean> = mutableStateOf(true)
-    val game = Game(10, needRefresh)
+    val game = Game(14, needRefresh)
 
     @OptIn(ExperimentalResourceApi::class)
     @Composable
