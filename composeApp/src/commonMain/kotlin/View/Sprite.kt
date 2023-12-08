@@ -20,7 +20,7 @@ class Sprite(var id:Int, var game: Game) {
         link.append("images/")
         link.append(id)
         link.append(".png")
-        Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable{ game.play(1) })
+        Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable{ game.play(id) })
     }
 
 }
