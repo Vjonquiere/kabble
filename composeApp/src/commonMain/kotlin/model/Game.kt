@@ -10,4 +10,9 @@ class Game(val nbRounds : Int) {
         player.nextRound(this.middle.arrayInt)
         middle.nextRound(this.player1,this.player2)
     }
+
+    fun play(id:Int){
+        nextRound(player1)
+        println("nex")
+    }
 }

@@ -9,10 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import model.Game
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
-class Sprite(var id:Int) {
+class Sprite(var id:Int, val game: Game) {
 
     @OptIn(ExperimentalResourceApi::class)
     @Composable
@@ -21,7 +22,7 @@ class Sprite(var id:Int) {
         link.append("images/")
         link.append(id)
         link.append(".png")
-        Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable { println("te") })
+        Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable{ game.play(id) })
     }
 
 }
