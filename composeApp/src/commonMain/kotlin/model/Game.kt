@@ -9,6 +9,7 @@ class Game(val nbRounds : Int, var needRefresh: MutableState<Boolean>) {
     val player1 : Player = Player(nbRounds)
     val player2 : Player = Player(nbRounds)
     val middle : Deck = Deck(nbRounds,player1,player2)
+    var counter : Int = 0;
 
     var view: Game? = null
 
@@ -18,8 +19,14 @@ class Game(val nbRounds : Int, var needRefresh: MutableState<Boolean>) {
     }
 
     fun play(id:Int){
-        nextRound(player1)
-        needRefresh.value = true
+        if (id in middle.arrayInt){
+            counter += 1
+            println("counter : $counter")
+            nextRound(player1)
+            needRefresh.value = true
+        } else {
+            println("$id is not in the deck")
+        }
     }
 
 }
