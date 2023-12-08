@@ -2,6 +2,7 @@ package View
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -29,11 +30,13 @@ class Game {
                     )
                 }
 
+
                 Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
 
                         Card(game, true).draw(game.player1.arrayInt)
                         Card(game, false).draw(game.middle.arrayInt)
+
 
                     }
 
