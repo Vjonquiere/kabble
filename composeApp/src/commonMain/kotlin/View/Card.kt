@@ -12,7 +12,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import kotlin.random.Random
 
-class Card(val game: Game) {
+class Card(val game: Game, var clickable: Boolean) {
     @OptIn(ExperimentalResourceApi::class)
     @Composable
     fun draw(cardArray: Array<Int>){
@@ -24,7 +24,7 @@ class Card(val game: Game) {
             )
             for (i in ClassicSpritePosition().generate_positions().indices){
                 var pos = ClassicSpritePosition().generate_positions()
-                Sprite(cardArray[i], game).draw(pos[i].get_x(), pos[i].get_y(), Random.nextInt(60,75))
+                Sprite(cardArray[i], game, clickable).draw(pos[i].get_x(), pos[i].get_y(), Random.nextInt(60,75))
             }
 
         }

@@ -32,8 +32,8 @@ class Game {
                 Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
 
-                        Card(game).draw(game.player1.arrayInt)
-                        Card(game).draw(game.middle.arrayInt)
+                        Card(game, true).draw(game.player1.arrayInt)
+                        Card(game, false).draw(game.middle.arrayInt)
 
                     }
 
@@ -54,8 +54,8 @@ class Game {
                 Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
 
-                        Card(game).draw(game.player1.arrayInt)
-                        Card(game).draw(game.middle.arrayInt)
+                        Card(game, true).draw(game.player1.arrayInt)
+                        Card(game, false).draw(game.middle.arrayInt)
 
                     }
 

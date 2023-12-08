@@ -11,7 +11,7 @@ import model.Game
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
-class Sprite(var id:Int, var game: Game) {
+class Sprite(var id:Int, var game: Game, var clickable: Boolean) {
 
     @OptIn(ExperimentalResourceApi::class)
     @Composable
@@ -20,7 +20,12 @@ class Sprite(var id:Int, var game: Game) {
         link.append("images/")
         link.append(id)
         link.append(".png")
-        Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable{ game.play(id) })
+        if (clickable){
+            Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp).clickable{ game.play(id) })
+        } else {
+            Image(painter = painterResource(link.toString()), contentDescription = "sprite", modifier = Modifier.size(size_t.dp).offset(x.dp, y.dp))
+        }
+
     }
 
 }
