@@ -3,40 +3,65 @@ package View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import model.Game
-import model.Player
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 class Game {
-
-    val game = Game(10)
+    var needRefresh: MutableState<Boolean> = mutableStateOf(true)
+    val game = Game(10, needRefresh)
 
     @OptIn(ExperimentalResourceApi::class)
     @Composable
     fun draw(){
-        Box(modifier = Modifier.fillMaxSize()) {
+        if (needRefresh.value) {
+            game.view = this
             Box(modifier = Modifier.fillMaxSize()) {
-                Image(
-                    painterResource("images/background.png"),
-                    contentDescription = "Background",
-                    modifier = Modifier.fillMaxSize()
-                )
-            }
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Image(
+                        painterResource("images/background.png"),
+                        contentDescription = "Background",
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
 
-            Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-                Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
+                Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
 
-                    Card(game).draw(game.player1.arrayInt)
-                    Card(game).draw(game.middle.arrayInt)
+                        Card(game).draw(game.player1.arrayInt)
+                        Card(game).draw(game.middle.arrayInt)
+
+                    }
 
                 }
 
             }
+            needRefresh.value = false
+        } else {
+            Box(modifier = Modifier.fillMaxSize()) {
+                Box(modifier = Modifier.fillMaxSize()) {
+                    Image(
+                        painterResource("images/background.png"),
+                        contentDescription = "Background",
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
 
+                Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Row(modifier = Modifier.fillMaxHeight(), verticalAlignment = Alignment.CenterVertically) {
+
+                        Card(game).draw(game.player1.arrayInt)
+                        Card(game).draw(game.middle.arrayInt)
+
+                    }
+
+                }
+
+            }
         }
     }
-
 }

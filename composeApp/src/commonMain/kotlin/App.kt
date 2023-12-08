@@ -20,14 +20,6 @@ import model.*
 @Composable
 fun App() {
     println("Hello world!")
-    val game1 = Game(55)
-    game1.player1.printArrayInt()
-    game1.player2.printArrayInt()
-    game1.middle.printArrayInt()
-    game1.nextRound(game1.player1)
-    game1.player1.printArrayInt()
-    game1.player2.printArrayInt()
-    game1.middle.printArrayInt()
 
 
 }
